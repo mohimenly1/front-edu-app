@@ -24,9 +24,9 @@
 
 
             <button type="submit">Login</button>
-            <div class="register-link">
+            <!-- <div class="register-link">
                 <p class="student-login">Are You Student ? <router-link to="/login/student">Login Here</router-link> </p>
-            </div>
+            </div> -->
 
 
 

@@ -119,7 +119,7 @@
       </template>
     </el-table-column>
 
-    <!-- <el-table-column label="Operations" width="280">
+    <el-table-column label="Operations" width="280">
       <template #default="{ row }">
         <div class="handle-btn-operation">
         <button @click="showQuestionEdit(row)" class="delete-unit ml-5">
@@ -128,7 +128,7 @@
 
         </div>
       </template>
-    </el-table-column> -->
+    </el-table-column>
   </el-table>
   
   

@@ -44,8 +44,11 @@ const asideLgCloseClick = (event) => {
   <aside id="aside" class="lg:py-2 lg:pl-2 w-60 fixed flex z-40 top-0 h-screen transition-position overflow-hidden">
     <div class="aside lg:rounded-2xl flex-1 flex flex-col overflow-hidden dark:bg-slate-900">
       <div class="aside-brand flex flex-row h-14 items-center justify-between dark:bg-slate-900">
-        <div class="text-center flex-1 lg:text-left lg:pl-6 xl:text-center xl:pl-0">
-          <b class="font-black">One</b>
+        <div  v-if='userRole == adminValue' class="text-center flex-1 lg:text-left lg:pl-6 xl:text-center xl:pl-0">
+          <b class="font-black">Admin</b>
+        </div>
+        <div  v-if='userRole == studentValue' class="text-center flex-1 lg:text-left lg:pl-6 xl:text-center xl:pl-0">
+          <b class="font-black">Student</b>
         </div>
         <button class="hidden lg:inline-block xl:hidden p-3" @click.prevent="asideLgCloseClick">
           <BaseIcon :path="mdiClose" />
@@ -138,7 +141,7 @@ const asideLgCloseClick = (event) => {
 <!-- Student Menu -->
 <div  v-if='userRole == studentValue'>
 
-  <li>
+  <!-- <li>
 
 <router-link class="flex cursor-pointer py-3 aside-menu-item dark:text-slate-300 dark:hover:text-white" to="/units">
   <span class="inline-flex justify-center items-center w-16 h-6 flex-none">
@@ -147,7 +150,7 @@ const asideLgCloseClick = (event) => {
 
 <span class="grow text-ellipsis line-clamp-1 pr-12">Browsing Unit</span>
 </router-link>
-</li>
+</li> -->
 
 
 </div>

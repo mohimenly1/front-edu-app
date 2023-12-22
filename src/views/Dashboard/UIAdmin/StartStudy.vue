@@ -5,28 +5,8 @@
       <template #header>
         <div class="card-header">
           <span>Giving Unit And Lesson To Student</span>
-          <div class="button-container">
-  
-  
-              <button @click="dialogVisibleFormData = true" class="add-unit ml-5">
-                  <ph-folder-notch :size="32" color="#FDF0F0" weight="fill" />
-              </button>
-      </div>
-        </div>
-      </template>
-  
-  
-  
-  <!-- Dialog To Display The Record Data -->
-  
-  <el-dialog
-      v-model="dialogVisibleFormData"
-      title="Student Fields Data"
-      width="60%"
-      :before-close="handleClose"
-      class="el-dialog-main"
-    >
-      <div class="main-form-fields">
+
+          <div class="main-form-fields">
           <div
     class="block w-100 rounded-lg  p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
     <form @submit.prevent="submitUnitLessonToStudent" >
@@ -87,79 +67,14 @@
   
   </div>
       </div>
-      <template #footer>
-        <span class="dialog-footer">
-          <button>
-  
-          </button>
-        </span>
-      </template>
-    </el-dialog>
-  
-    <el-table :data="itemStudentTable" style="width: 100%">
-    <el-table-column prop="name" label="Name" width="180" />
-    <el-table-column prop="school.name" label="School Name" width="180" />
-    <el-table-column prop="address" label="Address" width="180" />
-    <el-table-column prop="class" label="Class" width="180" />
-    <el-table-column label="Image">
-      <template #default="{ row }">
-        <!-- Display the image with a maximum width and height -->
-        <img class="proportional-image" :src="'http://127.0.0.1:8000/storage/' + row.image" alt="Image" />
-      </template>
-    </el-table-column>
-    <el-table-column prop="phone" label="Phone Number" width="130"/>
-    <el-table-column label="Operations" width="110">
-      <template #default="{ row }">
-        <button @click="confirmdeleteStudent(row.id)" class="delete-unit ml-5">
-          <ph-trash-simple :size="32" color="#FFFFDD" weight="fill" />
-        </button>
-      </template>
-    </el-table-column>
-  </el-table>
-  
-  
-  
-  
-    
-  
-      <el-pagination
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-        :current-page="currentPage"
-        :page-sizes="[3, 10, 20]"
-        :page-size="pageSize"
-        layout="total, sizes, prev, pager, next, jumper"
-        :total="totalStudent"
-      ></el-pagination>
-  
-  
-  
-  <!-- Confirm Delete -->
-  
-  <el-dialog
-      v-model="dialogConfirmDelete"
-      title="Delete Unit"
-      width="40%"
-      :before-close="handleClose"
-      class="el-dialog-main-delete"
-    >
-  
-    <h2>Are You Sure You Want To Delete This Student ?</h2>
-      <template #footer>
-        <span class="dialog-footer">
-          
-          <div class="button-borders">
-    <button @click="deleteStudent" class="primary-button"> Delete
-    </button>
-  
-  
-    <button @click="dialogConfirmDelete = false" class="primary-button"> Cancel
-    </button>
-  </div>
-        </span>
+        </div>
       </template>
   
-  </el-dialog>
+  
+  
+
+  
+
   
     </el-card>
       </SectionMain>

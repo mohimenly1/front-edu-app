@@ -53,9 +53,9 @@
 
 
           <button type="submit">Login</button>
-          <div class="register-link">
+          <!-- <div class="register-link">
               <router-link class="go-back" to="/login">GO BACK TO ADMIN</router-link> 
-            </div>
+            </div> -->
 
 
 
