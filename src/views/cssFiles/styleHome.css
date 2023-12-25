@@ -12940,7 +12940,7 @@ a {
 
 #hero-slides #footer #dribbble:before {
     display: inline;
-    content: "View original Dribbble";
+    /* content: "View original Dribbble"; */
     font-size: 2vh;
     opacity: 0;
     transform: translate3D(-200px, 0, 0);
@@ -12952,14 +12952,14 @@ a {
     width: 4vh;
     height: 4vh;
     margin-left: 1vh;
-    background-image: url(https://alca.tv/static/u/82fde61b-28ef-4f17-976e-8f1abb5a1165.png);
+    /* background-image: url(https://alca.tv/static/u/82fde61b-28ef-4f17-976e-8f1abb5a1165.png); */
     background-size: contain;
     background-position: center;
 }
 
 #hero-slides #footer #dribbble.hover,
 #hero-slides #footer #dribbble:hover {
-    background: #e94e89;
+    /* background: #e94e89; */
 }
 
 #hero-slides #footer #dribbble.hover:before,

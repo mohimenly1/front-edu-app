@@ -523,8 +523,14 @@ const submitEditForm = async () => {
     // Add any media files if needed
     // Iterate through selectedFiles and append each file to formData
     for (let i = 0; i < selectedFiles.value.length; i++) {
-    formData.append('media_files[]', selectedFiles.value[i].file);
+  const file = selectedFiles.value[i].file;
+  formData.append('media_files[]', file);
+
+  // Set the explicit MIME type if available
+  if (file.type) {
+    formData.set('media_files[' + i + '][type]', file.type);
   }
+}
 
     // Make the Axios PUT request
     const response = await axios.post(`http://127.0.0.1:8000/api/edit-lesson-with-media/${lessonId}`, formData);
@@ -590,13 +596,18 @@ const handleFileChange = (event) => {
     const file = files[i];
     // Create a FileReader to read the image preview
     const reader = new FileReader();
+    
+    // Explicitly set the MIME type for each file
+    const fileType = file.type ? file.type : 'unknown'; // Set a default if type is undefined
+
     reader.onload = (e) => {
-      // Push each selected file along with its preview to the selectedFiles array
-      selectedFiles.value.push({ file, preview: e.target.result });
+      // Push each selected file along with its preview and type to the selectedFiles array
+      selectedFiles.value.push({ file, preview: e.target.result, type: fileType });
     };
     reader.readAsDataURL(file);
   }
 };
+
 const handleFileChangeEdit = (event) => {
   const files = event.target.files;
   for (let i = 0; i < files.length; i++) {

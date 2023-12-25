@@ -10,6 +10,8 @@ import LoginStudentVue from '@/views/Dashboard/Login/LoginStudent.vue';
 import LessonUnit from '@/views/Dashboard/ComponentStudent/LessonUnit.vue';
 import FirstLesson from '@/views/Dashboard/UiLessons/FirstLesson.vue';
 import AddQuestionVue from '@/views/Dashboard/UIAdmin/AddQuestion.vue';
+import HomePage from '@/views/HomePage.vue';
+import RegisterStudentVue from '@/views/RegisterStudentVue.vue';
 
 import { useMyStore } from '@/stores/mystore.js';
 
@@ -59,7 +61,7 @@ const router = createRouter({
 
                 } else {
                     // User is not authenticated, redirect to the login page
-                    next('/login');
+                    next('/home-page');
                     console.log("not authenticated")
                 }
 
@@ -82,6 +84,20 @@ const router = createRouter({
             path: '/login/student',
             name: 'login-student',
             component: LoginStudentVue,
+        },
+        {
+            meta: {
+                title: 'Education System',
+
+            },
+            path: '/home-page',
+            name: 'home-page',
+            component: HomePage, // Replace 'HomePage' with your actual component name
+        },
+        {
+            path:'/register-student',
+            name: 'register-student',
+            component: RegisterStudentVue,
         },
         {
             meta: {

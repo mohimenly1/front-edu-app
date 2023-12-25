@@ -27,12 +27,17 @@
         <div class="circle"></div>
         <div class="card-inner">
           <template v-if="mediaFile.type === 'image'">
-            <img class="img-fluid rounded-circle" :src="'http://127.0.0.1:8000/storage/' + mediaFile.file_name">
-          </template>
+  <img
+    class="img-fluid rounded-circle"
+    :src="'http://127.0.0.1:8000/storage/' + mediaFile.file_name"
+    @click="openImageModal('http://127.0.0.1:8000/storage/' + mediaFile.file_name)"
+  >
+</template>
+
           <template v-else-if="mediaFile.type === 'video'">
             <h1 class="h1">Video File</h1>
             <!-- Display video player for video files -->
-            <video width="320" height="240" class="img-fluid rounded-circle" controls>
+            <video  width="320" height="240" class="img-fluid rounded-circle" controls>
               <source :src="'http://127.0.0.1:8000/storage/' + mediaFile.file_name" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -230,6 +235,11 @@ UnCompleted
     this.fetchQuestionsAndAnswers();
   },
     methods:{
+      openImageModal(imageUrl) {
+    // Open the image in a modal here
+    // For a simple solution, you can use the browser's built-in support for opening images in a new tab/window
+    window.open(imageUrl, '_blank');
+  },
       async fetchQuestionsAndAnswers() {
       try {
         // Make an API request to get questions and answers for the lesson
